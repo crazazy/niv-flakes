@@ -19,7 +19,12 @@
         system = "x86_64-linux";
       };
     in
-    eachDefaultSystem (system: let
+    {
+      defaultTemplate = {
+        path = ./.;
+        description = "nix flakes for niv users";
+      };
+    } // eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
       monorepo = import nixos-config { inherit pkgs; };
     in
