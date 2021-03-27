@@ -1,0 +1,60 @@
+{
+  "nodes": {
+    "flake-utils": {
+      "locked": {
+        "narHash": "sha256-LakhOx3S1dRjnh0b5Dg3mbZyH0ToC9I8Y2wKSkBaTzU=",
+        "type": "tarball",
+        "url": "https://codeload.github.com/numtide/flake-utils/tar.gz/5466c5bbece17adaab2d82fae80b46e807611bf3"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/numtide/flake-utils/archive/5466c5bbece17adaab2d82fae80b46e807611bf3.tar.gz"
+      }
+    },
+    "niv": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-thSRKs4+tfKpLcvkNaXIA+73JMKslcn8OFDntVTfSuI=",
+        "type": "tarball",
+        "url": "https://codeload.github.com/nmattia/niv/tar.gz/af958e8057f345ee1aca714c1247ef3ba1c15f5e"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/nmattia/niv/archive/af958e8057f345ee1aca714c1247ef3ba1c15f5e.tar.gz"
+      }
+    },
+    "nixos-config": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-07LUq60VXdM78vK//0T4PMWNlStGhPdYOk4iVacW1uM=",
+        "type": "tarball",
+        "url": "https://codeload.github.com/crazazy/nixos-config/tar.gz/14060609e31f26969eae856d2693f17affa246f4"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/crazazy/nixos-config/archive/14060609e31f26969eae856d2693f17affa246f4.tar.gz"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "narHash": "sha256-0gBKjK81fuj7qvfM439CRlR3e4yjYMenPYvBKU7YH/s=",
+        "type": "tarball",
+        "url": "https://codeload.github.com/NixOS/nixpkgs/tar.gz/1eea37190739485a01f5036558cd2ff257985678"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/1eea37190739485a01f5036558cd2ff257985678.tar.gz"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "niv": "niv",
+        "nixos-config": "nixos-config",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
