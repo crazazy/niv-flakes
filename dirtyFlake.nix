@@ -12,7 +12,6 @@
   outputs = { self, nixpkgs, flake-utils, nixos-config, ... }:
     let
       inherit (flake-utils.lib) eachDefaultSystem flattenTree;
-      mapAttrs = f: attrs: builtins.listToAttrs (map (k: { name = k; value = f k attrs.${k}; }) (builtins.attrNames attrs));
       mkSystem = modules: nixpkgs.lib.nixosSystem {
         inherit modules;
         extraArgs.system = "x86_64-linux";
@@ -20,6 +19,13 @@
       };
     in
     {
+      lib = {
+        augmentCallPackage = callPackage: defaultArgs: f: extraArgs: let
+          fn = if builtins.isFunction f then f else import f;
+          args = builtins.intersectAttrs defaultArgs (builtins.functionArgs fn);
+        in
+        callPackage f (args // extraArgs);
+      };
       defaultTemplate = {
         path = ./.;
         description = "nix flakes for niv users";
