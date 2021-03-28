@@ -12,9 +12,11 @@
   outputs = { self, nixpkgs, flake-utils, nixos-config, ... }:
     let
       inherit (flake-utils.lib) eachDefaultSystem flattenTree;
+      monoLib = (import nixos-config { pkgs = { inherit (nixpkgs) lib; }; }).lib;
     in
     {
       lib = {
+        inherit (monoLib) ensureModules pkgsrc;
         augmentCallPackage = callPackage: defaultArgs: f: extraArgs: let
           fn = if builtins.isFunction f then f else import f;
           args = builtins.intersectAttrs defaultArgs (builtins.functionArgs fn);
